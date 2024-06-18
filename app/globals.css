@@ -3,31 +3,63 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --Cyan: hsl(180, 66%, 49%);
+  --Cyan-light: hsla(180, 70%, 68%, 0.884);
+  --Dark-Violet: hsl(257, 27%, 26%);
+  --Red: hsl(0, 87%, 67%);
+  --Gray: hsl(0, 0%, 75%);
+  --Grayish-Violet: hsl(257, 7%, 63%);
+  --Very-Dark-Blue: hsl(255, 11%, 22%);
+  --Very-Dark-Violet: hsl(260, 8%, 14%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
+::selection {
+  background-color: var(--Red);
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.Hero-Img {
+  animation: start 5s infinite linear;
+  filter: drop-shadow(0px 56px 26px rgba(0, 0, 0, 0.2));
+}
+
+.to-long-url {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes start {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-25px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(25px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
   }
 }
